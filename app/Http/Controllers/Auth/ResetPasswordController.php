@@ -45,7 +45,7 @@ class ResetPasswordController extends Controller
         // TODO: Update password
 
         return response()->json([
-            'success' => 'Password changed successfully'
+            'message' => 'Password changed successfully'
         ]);
     }
 }
