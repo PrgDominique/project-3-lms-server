@@ -21,31 +21,29 @@ class LoginController extends Controller
         $result = ValidationUtil::validateEmail($email);
         if ($result != null) {
             return response()->json([
-                'status' => 'fail',
                 'message' => $result,
+                'type' => 'email'
             ], 400);
         }
 
         $result = ValidationUtil::validatePassword($password);
         if ($result != null) {
             return response()->json([
-                'status' => 'fail',
                 'message' => $result,
+                'type' => 'password'
             ], 400);
         }
 
         $user = User::where('email', $email)->first();
         if ($user == null) {
             return response()->json([
-                'status' => 'fail',
-                'message' => 'User not found',
+                'message' => 'Credential is not found',
             ], 404);
         }
 
         if (!password_verify($password, $user->password)) {
             return response()->json([
-                'status' => 'fail',
-                'message' => 'Password is incorrect',
+                'message' => 'Credential is not match',
             ], 400);
         }
     }
