@@ -5,7 +5,7 @@ namespace App\Utils;
 class ValidationUtil
 {
 
-    public static function validateFirstName(string $value)
+    public static function validateFirstName(string $value = null)
     {
         if (empty($value)) {
             return 'Please enter your first name';
@@ -19,7 +19,7 @@ class ValidationUtil
         return null;
     }
 
-    public static function validateLastName(string $value)
+    public static function validateLastName(string $value = null)
     {
         if (empty($value)) {
             return 'Please enter your last name';
@@ -33,7 +33,7 @@ class ValidationUtil
         return null;
     }
 
-    public static function validateEmail(string $value)
+    public static function validateEmail(string $value = null)
     {
         if (empty($value)) {
             return 'Please enter your email';
@@ -47,7 +47,7 @@ class ValidationUtil
         return null;
     }
 
-    public static function validatePassword(string $value)
+    public static function validatePassword(string $value = null)
     {
         if (empty($value)) {
             return 'Please enter a password';
@@ -72,7 +72,7 @@ class ValidationUtil
         return null;
     }
 
-    public static function validateToken(string $value)
+    public static function validateToken(string $value = null)
     {
         if (empty($value)) {
             return 'Invalid token';
