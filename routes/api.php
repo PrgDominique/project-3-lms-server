@@ -19,4 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::post('/login', [LoginController::class, 'login']);
+
 Route::post('/reset-password', [ResetPasswordController::class, 'update']);
+
