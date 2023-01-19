@@ -19,24 +19,24 @@ class ResetPasswordController extends Controller
         $result = ValidationUtil::validateId($id);
         if ($result != null) {
             return response()->json([
-                'status' => 'fail',
                 'message' => $result,
+                'type' => 'id'
             ], 400);
         }
 
         $result = ValidationUtil::validateToken($token);
         if ($result != null) {
             return response()->json([
-                'status' => 'fail',
                 'message' => $result,
+                'type' => 'token'
             ], 400);
         }
 
         $result = ValidationUtil::validatePassword($password);
         if ($result != null) {
             return response()->json([
-                'status' => 'fail',
                 'message' => $result,
+                'type' => 'password'
             ], 400);
         }
 
@@ -45,7 +45,7 @@ class ResetPasswordController extends Controller
         // TODO: Update password
 
         return response()->json([
-            'success' => 'Password changed successfully'
+            'message' => 'Password changed successfully'
         ]);
     }
 }
